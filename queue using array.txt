@@ -1,0 +1,52 @@
+// Online C compiler to run C program online
+// Queue implementation in C
+
+#include <stdio.h>
+#define SIZE 5
+
+void enQueue(int);
+void deQueue();
+void display();
+
+int data[SIZE], front = -1, rear = -1;
+int main() {
+enQueue(1);
+enQueue(2);
+enQueue(3);
+enQueue(4);
+enQueue(5);
+display();
+deQueue();
+return 0;
+}
+
+void enQueue(int value) {
+  if (rear == SIZE - 1)
+    printf("\nQueue is overflow");
+  else {
+    if (front == -1)
+      front = 0;
+    rear++;
+    data[rear] = value;
+    printf("\nInserted ----->>> %d", value);
+  }
+}
+void deQueue() {
+  if (front == -1)
+    printf("\nQueue is underflow");
+  else {
+    printf("\nDeleted ----->>>> %d", data[front]);
+    front++;
+  }
+}
+void display() {
+  if (rear == -1)
+    printf("\nQueue is Empty::::::");
+  else {
+    int i;
+    printf("\n elements which are inserted----->>>>\n");
+    for (i = front; i <= rear; i++)
+      printf("%d  ", data[i]);
+  }
+  printf("\n");
+}
